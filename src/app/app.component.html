@@ -1,3 +1,7 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Attribute directives</h1>
+<h2>ngClass and ngStyle</h2>
+
+<div [ngClass]="{border: false, background: true}">[ngClass]="{{ '{' }}border: false, background: true{{ '}' }}"</div>
+<div [ngClass]="{border: true, background: false}">[ngClass]="{{ '{' }}border: true, background: false{{ '}' }}"</div>
+<div [class.border]="true">[class.border]="true"</div>
+<div [ngStyle]="{'background-color': 'red'}">[ngStyle]="{{ '{' }}'background-color': 'red'{{ '}' }}"</div>
