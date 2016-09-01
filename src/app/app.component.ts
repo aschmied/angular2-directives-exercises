@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.css']
 })
 export class AppComponent {
+  private visible = true;
+  private items = ['first', 'secondly', 'three', 'five'];
+  private value = 100;
+  onClick() {
+    this.visible = !this.visible;
+  }
 }

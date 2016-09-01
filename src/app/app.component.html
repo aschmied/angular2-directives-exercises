@@ -10,3 +10,27 @@
 
 <!-- note the use of the directive name as a property binding input -->
 <div [highlight]="'red'" [defaultColor]="'gray'">using custom attribute directive</div>
+
+<h1> tructural directives</h1>
+
+<h2>*ngIf</h2>
+<!-- * marks the structural directive. The DOM is manipulated and the div
+  is added and removed. It is not simple hidden and shown. -->
+<div *ngIf="visible">Conditionally visible text</div>
+<button (click)="onClick()">Toggle</button>
+
+<h2>*hgFor</h2>
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let item of items; let i = index">{{i}}: {{item}}</li>
+</ul>
+
+<h2>ngSwitch</h2>
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="10">10</p>
+  <p *ngSwitchCase="100">100</p>
+  <p *ngSwitchDefault>Other</p>
+</div>
