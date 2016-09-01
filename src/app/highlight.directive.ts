@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[highlight]' // [] here selects by CSS style. leave out for selection by element. #: by id. .: by class.
@@ -6,12 +6,12 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 export class HighlightDirective {
   @HostListener('mouseenter')
   onMouseEnter() {
-    this.backgroundColor = 'green';
+    this.backgroundColor = this.highlightColor;
   }
 
   @HostListener('mouseleave')
   onMouseLeave() {
-    this.backgroundColor = 'white';
+    this.backgroundColor = this.defaultColor;
   }
 
   @HostListener('click', ['$event'])
@@ -24,8 +24,14 @@ export class HighlightDirective {
     return this.backgroundColor;
   }
 
-  private backgroundColor = 'white';
+  @Input() defaultColor = 'white';
+  @Input('highlight') highlightColor = 'green';
+  private backgroundColor: string;
 
   constructor() {
+  }
+
+  ngOnInit() {
+    this.backgroundColor = this.defaultColor;
   }
 }
