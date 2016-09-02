@@ -11,7 +11,7 @@
 <!-- note the use of the directive name as a property binding input -->
 <div [highlight]="'red'" [defaultColor]="'gray'">using custom attribute directive</div>
 
-<h1> tructural directives</h1>
+<h1>Structural directives</h1>
 
 <h2>*ngIf</h2>
 <!-- * marks the structural directive. The DOM is manipulated and the div
@@ -34,3 +34,6 @@
   <p *ngSwitchCase="100">100</p>
   <p *ngSwitchDefault>Other</p>
 </div>
+
+<h2>*unless: custom structural directive</h2>
+<div *unless="visible">Conditionally visible text</div>
